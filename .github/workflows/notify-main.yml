@@ -19,8 +19,8 @@ jobs:
       - name: Update submodule pointer
         run: |
           git submodule update --remote rb3dx_assets
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com"
           git add rb3dx_assets
           git commit -m "rb3dx_assets: ${{ github.event.head_commit.message }}"
           git push
